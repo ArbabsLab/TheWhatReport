@@ -11,11 +11,12 @@ def fetch_news_keyword(query="Politics",sort_by = "popularity",key=api_key):
     
     req = requests.get(url)
 
-    return req.json
+    return req.json()
 
 def fetch_news_source(source="us", key=api_key):
     url = f"https://newsapi.org/v2/top-headlines?country={source}&apiKey={key}"
     
     req = requests.get(url)
 
-    return req.json
+    return req.json()
+
