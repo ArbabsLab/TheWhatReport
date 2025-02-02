@@ -6,8 +6,8 @@ load_dotenv()
 
 api_key = os.getenv('NEWSAPI_KEY')
 
-def fetch_news_keyword(query="Politics",sort_by = "popularity",key=api_key):
-    url = f"https://newsapi.org/v2/everything?q={query}&sortBy={sort_by}&apiKey={key}"
+def fetch_news_keyword(query="Politics",sort_by = "popularity",page_size = "100", key=api_key):
+    url = f"https://newsapi.org/v2/everything?q={query}&sortBy={sort_by}&pageSize={page_size}&apiKey={key}"
     
     req = requests.get(url)
 
