@@ -18,10 +18,15 @@ for article in data:
 
 
 
-#tokenize the titles
+#tokenize the titles and description
 data_titles_tokenized = []
+data_desc_tokenized = []
 for doc in data_titles:
     data_titles_tokenized.append(word_tokenize(doc))
+
+for desc in data_desc:
+    data_desc_tokenized.append(word_tokenize(desc))
+
 
 #remove the stop words and punctuation
 stop_words = []
@@ -31,15 +36,29 @@ for line in f.readlines():
 
 #remove numbers and lowercase the words
 data_titles_processed = []
+data_desc_processed = []
 for sent in data_titles_tokenized:
     for word in sent:
         if word.isalnum() and word not in stop_words:
             data_titles_processed.append(word.lower())
 
 
+for s in data_desc_tokenized:
+    new_s = ''
+    for word in s:
+        if word.isalnum() and word not in stop_words:
+            new_s += word + ' '
+    data_desc_processed.append(new_s)
+
+
 
 def getProcessedTitles():
     return data_titles_processed
+
+def getProcessedDesc():
+    return data_desc_processed
+
+
 
 
 
