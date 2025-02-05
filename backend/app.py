@@ -1,9 +1,11 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import requests
 import fetch_news
 import mod_data
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def home():
